@@ -1,5 +1,8 @@
 package innerclass;
 
+/**
+ * 局部内部类
+ */
 public class LocalInnerClassDemo {
     public String name = "Liping" ;
     public void testMethod(int methodParam) {

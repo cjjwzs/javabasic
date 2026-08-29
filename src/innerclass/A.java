@@ -11,6 +11,9 @@ public class A {
     private int a1; //实例变量 a1
     private static int a2; //静态变量 a2
 
+    /**
+     * 静态内部类
+     */
     static class B {
         public String name = "innerB" ;
         int v1;
@@ -24,7 +27,9 @@ public class A {
             int v4;
         }
     }
-
+    /**
+     * 静态内部类
+     */
     static class CC {
         public static String name = "innerC" ;
         public String anotherName = "anotherC" ;

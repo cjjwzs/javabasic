@@ -16,6 +16,7 @@ public class Outer {
     } //构造Outer.Inner类的实例
 
     public class Inner { //public访问级别
+        //public static final  String inner = "hello";
         public Inner() {
             System.out.println("inner of Outer");
         }
