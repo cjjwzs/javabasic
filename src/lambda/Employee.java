@@ -56,6 +56,8 @@ class GroupingByDemo {
                 new Employee("周八", "人事部", 11000, 29)
         );
 
+        Map<String, List<Employee>> collectDept = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment));
+
         // 按部门分组
         Map<String, List<Employee>> byDept = employees.stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment));

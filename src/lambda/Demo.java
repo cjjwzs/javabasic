@@ -1,6 +1,9 @@
 package lambda;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -32,6 +35,22 @@ public class Demo {
     }
 
     public static void main(String[] args) {
+
+        List<List<Integer>> nestedList = Arrays.asList(
+                Arrays.asList(1, 2),
+                Arrays.asList(3, 4),
+                Arrays.asList(5, 6)
+        );
+
+// 使用 flatMap 将嵌套结构打平
+        List<Integer> flatList = nestedList.stream()
+                .flatMap(list -> list.stream()) // 将每个子 List 转换为 Stream，然后合并
+                .collect(Collectors.toList());
+
+        flatList.forEach(System.out::println);
+
+// 结果：[1, 2, 3, 4, 5, 6]
+
 // 定义一个 BiPredicate，判断两个整数是否都大于 10
         BiPredicate<Integer, Integer> bothGreaterThan10 = (n, m) -> n > 10 && m > 10;
 
@@ -86,7 +105,6 @@ public class Demo {
 
         // 3. 符合方法签名的静态方法引用
         Function<String, Integer> f3 = Demo::strLengthStatic;
-
 
         // 4. 符合方法签名的实例方法引用（特定对象的实例方法）
         Demo demo = new Demo();

@@ -7,6 +7,7 @@ package lambda;
  **/
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
 public class ThenComposeDemo {
     public static void main(String[] args) {
@@ -28,6 +29,21 @@ public class ThenComposeDemo {
                         });
 
         System.out.println("最终部门名称：" + finalResult.join());
+        findUser();
+    }
+
+    public static void findUser() {
+        CompletableFuture<String> stringCompletableFuture = CompletableFuture.supplyAsync(() -> {
+            System.out.printf("1. findUser 当前线程 ：" + Thread.currentThread().getName());
+            return "1001";
+        }).thenCompose(userName -> {
+            return CompletableFuture.supplyAsync(
+                    ()->{
+                        return userName;
+                    }
+            );
+        });
+        stringCompletableFuture.join();
     }
 
     // 模拟异步查询用户信息
