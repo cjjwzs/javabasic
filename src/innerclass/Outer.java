@@ -66,8 +66,6 @@ class SubOuter extends Outer {
             public void methodA() {
                 System.out.println("sub methodA");
             }
-
-            ;
         };
         // sub.method();
         sub.getClass().getMethod("methodA").invoke(sub);

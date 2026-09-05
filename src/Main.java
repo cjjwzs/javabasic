@@ -1,8 +1,18 @@
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class Main {
     public Main() {
     }
 
     public static void main(String[] args) {
+
+        Path base = Paths.get("F:/gradledemo");
+        Path target = Paths.get("F:/gradledemo/OnJava8/PathInfo.java");
+
+        Path rel = base.relativize(target);
+        System.out.println(rel); // OnJava8\PathInfo.java
+
         System.out.println("Hello world!");
         int i=(int)11.2; //合法
         float f=13L; //合法

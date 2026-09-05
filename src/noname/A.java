@@ -25,9 +25,11 @@ public class A {
 
         int b = 1;
 
-        A a1 = new A(b){
+        A a1 = new A(b) {
 
-            {System.out.println("initialize instance");}
+            {
+                System.out.println("initialize instance");
+            }
 
             @Override
             void method() {

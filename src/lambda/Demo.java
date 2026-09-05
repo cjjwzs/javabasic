@@ -36,6 +36,17 @@ public class Demo {
 
     public static void main(String[] args) {
 
+
+        Stream<Integer> s1 = Stream.generate(new NatualSupplier());
+        Stream<Integer> s2 = s1.map(n -> n * n);
+        Stream<Integer> s3 = s2.map(n -> n - 1);
+        System.out.println(s3);
+
+        Stream<Integer> s4 = s3.limit(10);
+        Integer totalCount = s4.reduce(0, (acc, n) -> acc + n);
+        System.out.println("totalCount "+totalCount);
+
+
         List<List<Integer>> nestedList = Arrays.asList(
                 Arrays.asList(1, 2),
                 Arrays.asList(3, 4),

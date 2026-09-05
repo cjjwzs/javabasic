@@ -11,6 +11,11 @@ import java.util.concurrent.CompletionStage;
 
 public class ThenComposeDemo {
     public static void main(String[] args) {
+
+        CompletableFuture.supplyAsync(() -> "hello") // 异步返回 "hello"
+                .thenApply(s -> s.toUpperCase())         // 同步转换为 "HELLO"
+                .thenAccept(System.out::println);        // 消费结果，输出: HELLO
+
         CompletableFuture<String> finalResult =
                 // 第一步：异步获取用户ID
                 CompletableFuture.supplyAsync(() -> {

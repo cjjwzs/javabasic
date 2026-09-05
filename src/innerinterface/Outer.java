@@ -3,7 +3,11 @@ package innerinterface;
 public class Outer {
     // 1. 定义了一个 public 的嵌套接口（默认就是 static 的）
     public interface PublicNestedInterface {
-        void doSomething();
+        public abstract void doSomething();
+
+        static void staticMethd() {
+            System.out.println("static methd");
+        }
     }
 
     // 2. 定义了一个 private 的嵌套接口（仅外部类内部可见）
@@ -29,6 +33,7 @@ public class Outer {
             System.out.println("正在使用变频技术降温...");
         }
     }
+
 }
 
 // 4. 在外部类之外，可以通过 "外部类名.接口名" 来访问
@@ -41,5 +46,7 @@ class Test implements Outer.PublicNestedInterface {
     public static void main(String[] args) {
         Test test = new Test();
         test.doSomething();
+//        test.staticMethd();
+        Outer.PublicNestedInterface.staticMethd();
     }
 }

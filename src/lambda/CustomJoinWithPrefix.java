@@ -22,8 +22,14 @@ public class CustomJoinWithPrefix {
         // split by space, uppercase, and convert to Array
         String[] result77 =  Arrays.stream(lines.split("\\s+"))
                 .map(String::toUpperCase)
-                .toArray(String[]::new);
+                .toArray(value -> {
+                    System.out.println("数组长度  "+value);
+                    return new String[value];
+                });
                 //.toArray(String[]::new);
+
+        Arrays.stream(lines.split("\\s+"))
+                .map(String::toUpperCase).toArray(String[]::new);
 
         for (String s : result77) {
             System.out.println(s);
